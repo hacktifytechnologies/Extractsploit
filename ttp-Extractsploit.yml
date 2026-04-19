@@ -1,10 +1,10 @@
-- name: 'HACKTIFY: Setup Extractsploit Hardware Portal Lab'
+- name: 'HACKTIFY: Setup Extractsploit Lab'
   id: 44adee48-8a07-086c-9e4f-8554c2736344
   description: >-
     A hardware showroom portal is running on port 8095. The platform
     showcases industrial hardware products and requires authentication to
     browse the full catalogue. Investigate how the application processes
-    login credentials on the server side — specifically how it handles the
+    login credentials on the server side, specifically how it handles the
     JSON payload sent during authentication. Your objective is to gain
     access to the restricted admin area without knowing the admin password.
   tactic: initial-access
@@ -17,16 +17,13 @@
     - name: sh
       platform: linux
       command: |
-        git clone https://github.com/hacktifytechnologies/Extractsploit /opt/hacktify/Extractsploit
-        cd /opt/hacktify/Extractsploit
-        chmod +x setup.sh
-        bash setup.sh -a
+        git clone https://github.com/hacktifytechnologies/Extractsploit /opt/hacktify/Extractsploit && cd /opt/hacktify/Extractsploit && docker compose up -d --build && echo 'Lab deployment complete'
       code: null
       language: null
       build_target: null
       payloads: []
       uploads: []
-      timeout: 300
+      timeout: 600
       parsers: []
       cleanup: []
       variations: []
